@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-
     namespace "grandfinale.app"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -22,9 +21,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_22
     }
 }
 
