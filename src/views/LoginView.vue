@@ -35,25 +35,24 @@ const verlogin = () => {
 <template>
   <div class="login">
     <header>
-      <span class="div"></span>
+      <h2>Login</h2>
+      <h2>EasyCall</h2>
+      
     </header>
-    <tr v-for="login of logins" :key="login.id">
-      <td>{{ login.name }}</td>
-      <td>{{ login.login }}</td>
-      <td>{{ login.password }}</td>
-    </tr>
-
-    <h2>Login</h2>
-    <form @submit.prevent="verlogin">
-      <div class="input">
+    
+    <form class="form-login" @submit.prevent="verlogin">
+      <div class="form-content">
         <label for="username">Username:</label>
         <input type="text" v-model="user" />
       </div>
-      <div class="input">
+      <div class="form-content">
         <label for="password">Password:</label>
         <input type="password" v-model="pass" required />
       </div>
-      <button type="submit">Login</button>
+      <div class="form-content">
+        <button type="submit">Login</button>
+      </div>
+      
     </form>
   </div>
 </template>
@@ -66,15 +65,46 @@ body {
   width: 100%;
 }
 .login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 280px; /* ou a largura que desejar */
+  display: grid;
+  gap: 0.2rem;
+  width: 230px; /* ou a largura que desejar */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+}
+.login header {
+  font: 700 0.825rem 'Poppins', sans-serif;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
+  border-bottom: 1px solid gray;
+}
+.login .form-login {
+  display: grid;
+  gap: 0.5rem;
+}
+.login .form-content {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.login .form-content input {
+  background-color: transparent;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+}
+
+.login .form-content button {
+background-color: green;
+border-radius: 0.4rem;
+color: white;
+font-size: 1.2rem;
+}
+.login .form-content button:hover {
+background-color: darkgreen;
 }
 </style>
