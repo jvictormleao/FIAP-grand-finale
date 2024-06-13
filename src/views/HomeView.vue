@@ -59,17 +59,8 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-@media (max-width: 600px){
 
-  main.home {
-  margin-top: 4rem;
-  display:flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  overflow: hidden;
-}
-  header.home {
+header.home {
   position: fixed;
   z-index: 100;
   background-color: white;
@@ -91,6 +82,72 @@ header.home a:nth-child(2) {
   margin-right: 1rem;
 }
 
+@media(min-width: 601px){
+main.home {
+  margin-top: 4rem;
+  display:flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+
+
+div.chamados {
+  border-radius: 0.5rem;
+  position:relative;
+  background-color: white;
+  border: 1px solid black;
+  width: 50%;
+  overflow-y: hidden;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
+  max-height: 100px; /* Defina max-height igual ao valor inicial de height */
+}
+
+div.chamados.wrap {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+div.chamados span {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  cursor: pointer;
+}
+
+div.chamados span.wrap {
+  
+  transform: rotate(180deg);
+}
+
+div.chamados .header {
+  padding: 0 0 0.2rem 0.25rem;
+  border-bottom: 1px solid gray;
+}
+
+div.chamados .content {
+  padding: 0 0.25rem;
+}
+
+div.chamados .footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+}
+}
+@media (min-width:0px) and (max-width: 600px){
+
+  main.home {
+  margin-top: 4rem;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+
 div.chamados {
   border-radius: 0.5rem;
   position:relative;
@@ -98,6 +155,7 @@ div.chamados {
   border: 1px solid black;
   overflow-y: hidden;
   padding: 0.5rem 1rem;
+  width: auto;
   margin: 0;
   transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
   max-height: 100px; /* Defina max-height igual ao valor inicial de height */
