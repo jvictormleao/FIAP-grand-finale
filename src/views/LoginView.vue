@@ -7,7 +7,7 @@ const logins = ref([])
 const user = ref('')
 const pass = ref('')
 
-const route = useRouter()
+const router = useRouter()
 
 onMounted(() => {
   Login.listar().then((res) => {
@@ -21,7 +21,7 @@ const verlogin = () => {
   )
   if (foundUser) {
     // Autenticação bem-sucedida, redirecionar para a página home
-    route.push({ name: 'home', query: { id: foundUser.name } })
+    router.push({ name: 'home', query: { id: foundUser.name } })
   } else {
     // Exibir mensagem de erro
     alert('Credenciais inválidas')
@@ -30,6 +30,7 @@ const verlogin = () => {
 </script>
 
 <template>
+  <main class="login">
   <div class="login">
     <header>
       <h2>Login</h2>
@@ -50,16 +51,20 @@ const verlogin = () => {
       </div>
     </form>
   </div>
+</main>
 </template>
 
 <style scoped>
-body {
+main.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
 }
-.login {
+div.login {
   display: grid;
   gap: 0.2rem;
   width: 16.25rem; /* ou a largura que desejar */
