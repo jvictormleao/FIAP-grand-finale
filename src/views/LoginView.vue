@@ -7,14 +7,11 @@ const logins = ref([])
 const user = ref('')
 const pass = ref('')
 
-const router = useRouter()
+const route = useRouter()
 
 onMounted(() => {
   Login.listar().then((res) => {
     logins.value = res.data
-    console.log(logins.value)
-    pass.value - logins.value.password
-    console.log(pass)
   })
 })
 
@@ -24,7 +21,7 @@ const verlogin = () => {
   )
   if (foundUser) {
     // Autenticação bem-sucedida, redirecionar para a página home
-    router.push('/home')
+    route.push({ name: 'home', query: { id: foundUser.name } })
   } else {
     // Exibir mensagem de erro
     alert('Credenciais inválidas')
@@ -37,9 +34,8 @@ const verlogin = () => {
     <header>
       <h2>Login</h2>
       <h2>EasyCall</h2>
-      
     </header>
-    
+
     <form class="form-login" @submit.prevent="verlogin">
       <div class="form-content">
         <label for="username">Username:</label>
@@ -52,7 +48,6 @@ const verlogin = () => {
       <div class="form-content">
         <button type="submit">Login</button>
       </div>
-      
     </form>
   </div>
 </template>
@@ -67,15 +62,17 @@ body {
 .login {
   display: grid;
   gap: 0.2rem;
-  width: 230px; /* ou a largura que desejar */
-  padding: 20px;
+  width: 16.25rem; /* ou a largura que desejar */
+  padding: 1.25rem;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
 .login header {
-  font: 700 0.825rem 'Poppins', sans-serif;
+  font:
+    700 0.825rem 'Poppins',
+    sans-serif;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -99,12 +96,12 @@ body {
 }
 
 .login .form-content button {
-background-color: green;
-border-radius: 0.4rem;
-color: white;
-font-size: 1.2rem;
+  background-color: green;
+  border-radius: 0.4rem;
+  color: white;
+  font-size: 1.2rem;
 }
 .login .form-content button:hover {
-background-color: darkgreen;
+  background-color: darkgreen;
 }
 </style>
