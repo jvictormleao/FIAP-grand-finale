@@ -39,9 +39,12 @@ const toggleWrap = (chamado) => {
   <main class="home">
     <div class="chamados" v-for="chamado of chamados" :key="chamado.id" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">
       <h2 class="header">{{chamado.assunto}}</h2>
-      <p>Descrição: {{chamado.descricao}}</p>
+      <p class="content">{{chamado.descricao}}</p>
+      <div class="footer">
       <p>Título: {{chamado.numanydesk}}</p>
       <p>Status: {{chamado.status}}</p>
+      </div>
+      
       <span @click="toggleWrap(chamado)" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">V</span>
     </div>
   </main>
@@ -89,8 +92,9 @@ header.home a:nth-child(2) {
 }
 
 div.chamados {
+  border-radius: 0.5rem;
   position:relative;
-  background-color: red;
+  background-color: white;
   border: 1px solid black;
   overflow-y: hidden;
   padding: 0.5rem 1rem;
@@ -117,9 +121,18 @@ div.chamados span.wrap {
 }
 
 div.chamados .header {
-  margin: 0;
-  padding: 0 0 0.2rem 0.2rem;
+  padding: 0 0 0.2rem 0.25rem;
   border-bottom: 1px solid gray;
+}
+
+div.chamados .content {
+  padding: 0.5rem 0.25rem;
+}
+
+div.chamados .footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.25rem;
 }
 
 h2 {
