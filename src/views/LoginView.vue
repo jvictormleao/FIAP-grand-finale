@@ -22,7 +22,7 @@ const verlogin = () => {
   )
   if (foundUser) {
     // Autenticação bem-sucedida, redirecionar para a página home
-    router.push({ name: 'home', params: { id: foundUser.id } })
+    router.push({ name: 'home', params: { login: foundUser.login } })
   } else {
     // Exibir mensagem de erro
     alert('Credenciais inválidas')
