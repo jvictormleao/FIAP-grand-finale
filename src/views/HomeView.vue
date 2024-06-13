@@ -41,7 +41,7 @@ const toggleWrap = (chamado) => {
       <h2 class="header">{{chamado.assunto}}</h2>
       <p class="content">{{chamado.descricao}}</p>
       <div class="footer">
-      <p>Título: {{chamado.numanydesk}}</p>
+      <p>Anydesk: {{chamado.numanydesk}}</p>
       <p>Status: {{chamado.status}}</p>
       </div>
       
