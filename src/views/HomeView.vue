@@ -53,13 +53,13 @@ const toggleWrap = (chamado) => {
 body {
   width: 100%;
   height: 100%;
-  margin-top: 7rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 @media (max-width: 600px){
 
   main.home {
+  margin-top: 4rem;
   display:flex;
   flex-direction: column;
   height: 100%;
