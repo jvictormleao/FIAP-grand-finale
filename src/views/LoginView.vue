@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import Login from '../services/login.js'
+import Login from '../services/login'
 import { useRouter } from 'vue-router'
 
 const logins = ref([])
@@ -11,6 +11,7 @@ const router = useRouter()
 
 onMounted(() => {
   Login.listar().then((res) => {
+    console.log(res)
     logins.value = res.data
   })
 })
@@ -21,7 +22,7 @@ const verlogin = () => {
   )
   if (foundUser) {
     // Autenticação bem-sucedida, redirecionar para a página home
-    router.push({ name: 'home', query: { id: foundUser.name } })
+    router.push({ name: 'home', params: { id: foundUser.id } })
   } else {
     // Exibir mensagem de erro
     alert('Credenciais inválidas')
@@ -61,7 +62,7 @@ main.login{
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 div.login {
