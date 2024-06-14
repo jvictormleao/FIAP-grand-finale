@@ -38,8 +38,8 @@ const deslogar = () => {
 
 <template>
   <header class="novochamado">
-    <a @click="voltar"><v-icon name="io-arrow-back" scale="1.3" /> </a>
-    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3" /></a>
+    <a @click="voltar"><v-icon name="io-arrow-back" scale="1.3" /> VOLTAR</a>
+    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3" /> LOGOUT</a>
   </header>
 
   <main class="chamado">
