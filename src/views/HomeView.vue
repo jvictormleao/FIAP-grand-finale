@@ -32,7 +32,8 @@ const deslogar = () => {
 }
 
 const deletar = (id) => {
-  Chamado.deletar(id)
+  if (confirm("Deseja mesmo excluir do chamado?") == true) {
+    Chamado.deletar(id)
     .then((res) => {
       console.log('Chamado excluido com sucesso:', res)
       listar()
@@ -40,6 +41,10 @@ const deletar = (id) => {
     .catch((err) => {
       console.log(err)
     })
+} else {
+  listar()
+}
+  
 }
 
 const toggleWrap = (chamado) => {
