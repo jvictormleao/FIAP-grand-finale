@@ -8,10 +8,11 @@ import {
   RiArrowDropDownFill,
   RiDoorOpenFill,
   IoArrowBack,
-  BiPlusSquareFill
+  BiPlusSquareFill,
+  BiTrashFill
 } from 'oh-vue-icons/icons'
 
-addIcons(RiArrowDropDownFill, RiDoorOpenFill, IoArrowBack, BiPlusSquareFill)
+addIcons(RiArrowDropDownFill, RiDoorOpenFill, IoArrowBack, BiPlusSquareFill, BiTrashFill)
 
 const app = createApp(App)
 

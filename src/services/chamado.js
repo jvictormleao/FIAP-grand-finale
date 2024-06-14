@@ -6,5 +6,8 @@ export default {
   },
   salvar: (chamado) => {
     return http.post(`chamado`, chamado)
+  },
+  deletar: (id) => {
+    return http.delete(`chamado/${id}`)
   }
 }

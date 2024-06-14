@@ -22,7 +22,10 @@ const verlogin = () => {
   )
   if (foundUser) {
     // Autenticação bem-sucedida, redirecionar para a página home
-    router.push({ name: 'home', params: { name: foundUser.name } })
+    router.push({
+      name: 'home',
+      params: { name: foundUser.name, department: foundUser.department }
+    })
   } else {
     // Exibir mensagem de erro
     alert('Credenciais inválidas')
@@ -62,7 +65,7 @@ main.login {
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: calc(100vh - 5rem);
   width: 100%;
 }
 div.login {

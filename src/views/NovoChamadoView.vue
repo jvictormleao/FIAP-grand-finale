@@ -5,13 +5,12 @@ import Chamado from '../services/chamado'
 
 const route = useRoute()
 const router = useRouter()
-route.params.name
 
 const chamado = ref({
   assunto: '',
   descricao: '',
   usuario: route.params.name,
-  departamento: '',
+  departamento: route.params.department,
   numanydesk: '',
   status: 'em aberto'
 })
@@ -44,21 +43,28 @@ const deslogar = () => {
   </header>
 
   <main class="chamado">
-    <form @submit.prevent="abrirChamado">
-      <label for="">Assunto: </label>
-      <input type="text" v-model="chamado.assunto" placeholder="Assunto" required />
-      <label for="">Descrição: </label>
-      <input type="text" v-model="chamado.descricao" placeholder="Descrição" required />
-      <label for="">Departamento: </label>
-      <input type="text" v-model="chamado.departamento" placeholder="Departamento" required />
-      <label for="">Número Anydesk: </label>
-      <input type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
+    <form class="chamado" @submit.prevent="abrirChamado">
+      <div class="assunto grid">
+        <label for="">Assunto: </label>
+        <input type="text" v-model="chamado.assunto" placeholder="Assunto" required />
+      </div>
+      <div class="descricao grid">
+        <label for="">Descrição: </label>
+        <input type="text" v-model="chamado.descricao" placeholder="Descrição" required />
+      </div>
+      <div class="numanydesk grid">
+        <label for="">Número Anydesk: </label>
+        <input type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
+      </div>
       <button type="submit">Abrir chamado</button>
     </form>
   </main>
 </template>
 
 <style scoped>
+.grid {
+  display: grid;
+}
 header.novochamado {
   position: fixed;
   z-index: 100;
@@ -80,10 +86,19 @@ header.novochamado a:nth-child(1) {
 header.novochamado a:nth-child(2) {
   margin-right: 1rem;
 }
-
 main.chamado {
   margin-top: 4rem;
+  padding-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 5rem);
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 601px) {
+}
+@media (min-width: 0px) and (max-width: 600px) {
 }
 </style>

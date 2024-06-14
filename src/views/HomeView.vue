@@ -7,9 +7,11 @@ const chamados = ref([])
 
 const route = useRoute()
 const router = useRouter()
-route.params.name
 
 onMounted(() => {
+  listar()
+})
+const listar = () => {
   Chamado.listar()
     .then((res) => {
       chamados.value = res.data
@@ -17,14 +19,27 @@ onMounted(() => {
     .catch((err) => {
       console.log(err)
     })
-})
-
+}
 const novochamado = () => {
-  router.push({ name: 'novochamado', params: { name: route.params.name } })
+  router.push({
+    name: 'novochamado',
+    params: { name: route.params.name, department: route.params.department }
+  })
 }
 
 const deslogar = () => {
   router.push('/')
+}
+
+const deletar = (id) => {
+  Chamado.deletar(id)
+    .then((res) => {
+      console.log('Chamado excluido com sucesso:', res)
+      listar()
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const toggleWrap = (chamado) => {
@@ -44,7 +59,9 @@ const toggleWrap = (chamado) => {
       :key="chamado.id"
       :class="{ wrap: chamado.wrapunwrap, '': !chamado.wrapunwrap }"
     >
-      <h2 class="header">{{ chamado.assunto }}</h2>
+      <h2 class="header">
+        {{ chamado.assunto }} <v-icon id="del" name="bi-trash-fill" @click="deletar(chamado.id)" />
+      </h2>
       <p class="content">{{ chamado.descricao }}</p>
       <p class="user">{{ chamado.usuario }}({{ chamado.departamento }})</p>
       <div class="footer">
@@ -64,9 +81,26 @@ const toggleWrap = (chamado) => {
 </template>
 
 <style>
+div.chamados #wrap {
+  cursor: pointer;
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+}
+
+div.chamados #wrap.wrap {
+  transform: rotate(180deg);
+}
+div.chamados #del {
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
 body {
   width: 100%;
-  height: 85vh;
+  height: calc(100vh - 5rem);
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -138,23 +172,16 @@ header.home a:nth-child(2) {
     overflow-y: visible;
   }
 
-  div.chamados #wrap {
-    cursor: pointer;
-    position: absolute;
-    bottom: -4px;
-    right: 0;
-  }
-
-  div.chamados #wrap.wrap {
-    transform: rotate(180deg);
-  }
-
   div.chamados .header {
     padding: 0 0 0.2rem 0.25rem;
     border-bottom: 1px solid gray;
   }
 
   div.chamados .content {
+    padding: 0 0.25rem;
+  }
+
+  div.chamados .user {
     padding: 0 0.25rem;
   }
 
@@ -193,25 +220,17 @@ header.home a:nth-child(2) {
     overflow-y: visible;
   }
 
-  div.chamados #wrap {
-    position: absolute;
-    bottom: -4px;
-    right: 0px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in;
-  }
-
-  div.chamados #wrap.wrap {
-    transform: rotate(180deg);
-  }
-
   div.chamados .header {
     padding: 0 0 0.2rem 0.25rem;
     border-bottom: 1px solid gray;
   }
 
   div.chamados .content {
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0.25rem 1rem 0.25rem;
+  }
+
+  div.chamados .user {
+    padding: 0.5rem 0.25rem 1rem 0.25rem;
   }
 
   div.chamados .footer {
