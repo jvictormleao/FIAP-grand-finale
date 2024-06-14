@@ -43,18 +43,23 @@ const deslogar = () => {
   </header>
 
   <main class="chamado">
-    <form class="chamado" @submit.prevent="abrirChamado">
-      <div class="assunto grid">
-        <label for="">Assunto: </label>
-        <input type="text" v-model="chamado.assunto" placeholder="Assunto" required />
+    <form id="chamado" class="chamado" @submit.prevent="abrirChamado">
+      <header>
+        <h2>Novo chamado</h2>
+      </header>
+      <div class="form-content">
+        <label for="assunto">Assunto: </label>
+        <input id="assunto" type="text" v-model="chamado.assunto" placeholder="Assunto" required />
       </div>
-      <div class="descricao grid">
-        <label for="">Descrição: </label>
-        <input type="text" v-model="chamado.descricao" placeholder="Descrição" required />
+      <div class="form-content">
+        <label for="descricao">Descrição: </label>
+<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:799106906. -->
+        <textarea id="descricao" form="chamado" v-model="chamado.descricao"placeholder="Descrição">
+</textarea>
       </div>
-      <div class="numanydesk grid">
-        <label for="">Número Anydesk: </label>
-        <input type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
+      <div class="form-content">
+        <label for="numanydesk">Número Anydesk: </label>
+        <input id="numanydesk" type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
       </div>
       <button type="submit">Abrir chamado</button>
     </form>
@@ -62,8 +67,26 @@ const deslogar = () => {
 </template>
 
 <style scoped>
-.grid {
+div.form-content {
   display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+
+div.form-content input {
+  background-color: transparent;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+}
+
+#descricao{
+  width: 18.75rem;
+  height: 5rem;
+  resize: none;
+  padding: 0.1rem;
+  font-size: 1rem;
+  border-radius: 0.2rem;
 }
 header.novochamado {
   position: fixed;
@@ -96,9 +119,33 @@ main.chamado {
   width: 100%;
   overflow: hidden;
 }
-
-@media (min-width: 601px) {
+form#chamado {
+  display:grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
-@media (min-width: 0px) and (max-width: 600px) {
+
+form#chamado header {
+  font:
+    700 0.825rem 'Poppins',
+    sans-serif;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
+  border-bottom: 1px solid gray;
+}
+form#chamado button {
+  background-color: green;
+  border-radius: 0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  color: white;
+  font-size: 1rem;
+}
+form#chamado button:hover {
+  background-color: darkgreen;
 }
 </style>

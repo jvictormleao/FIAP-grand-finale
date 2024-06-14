@@ -148,22 +148,13 @@ header.home a:nth-child(2) {
     gap: 1rem;
     width: 100%;
   }
-  div.chamados {
-    border-radius: 0.5rem;
-    position: relative;
-    background-color: white;
-    border: 1px solid black;
-    overflow-y: hidden;
-    padding: 0.2rem 1rem;
-    transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
-    max-height: 100px; /* Defina max-height igual ao valor inicial de height */
-  }
+  
 
   div.chamados {
     border-radius: 0.5rem;
     position: relative;
     background-color: white;
-    border: 1px solid black;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
     overflow-y: hidden;
     padding: 0.3rem 1rem;
     width: auto;
@@ -211,7 +202,7 @@ header.home a:nth-child(2) {
     border-radius: 0.5rem;
     position: relative;
     background-color: white;
-    border: 1px solid black;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
     overflow-y: hidden;
     padding: 0.5rem 1rem;
     width: auto;
