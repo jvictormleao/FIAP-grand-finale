@@ -10,15 +10,17 @@ const router = useRouter()
 route.params.name
 
 onMounted(() => {
-  Chamado.listar().then((res) => {
-    chamados.value = res.data
-  }).catch((err) => {
-    console.log(err)
-  })
-});
+  Chamado.listar()
+    .then((res) => {
+      chamados.value = res.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
 
 const novochamado = () => {
-  router.push({ name: 'novochamado', params:{ name: route.params.name }})
+  router.push({ name: 'novochamado', params: { name: route.params.name } })
 }
 
 const deslogar = () => {
@@ -26,34 +28,49 @@ const deslogar = () => {
 }
 
 const toggleWrap = (chamado) => {
-    chamado.wrapunwrap = !chamado.wrapunwrap;
+  chamado.wrapunwrap = !chamado.wrapunwrap
 }
-
 </script>
 
 <template>
   <header class="home">
-    <a @click="novochamado"><v-icon name="bi-plus-square-fill" scale="1.3"/> NOVO CHAMADO </a>
-    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3"/> LOGOUT</a>
+    <a @click="novochamado"><v-icon name="bi-plus-square-fill" scale="1.3" /> NOVO CHAMADO </a>
+    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3" /> LOGOUT</a>
   </header>
   <main class="home">
+<<<<<<< Updated upstream
     <div class="chamados" v-for="chamado of chamados" :key="chamado.id" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">
       <h2 class="header">{{chamado.assunto}}</h2>
       <p class="content">{{chamado.descricao}}</p>
       <p class="user">{{chamado.usuario}}({{chamado.departamento}})</p>
+=======
+    <div
+      class="chamados"
+      v-for="chamado of chamados"
+      :key="chamado.id"
+      :class="{ wrap: chamado.wrapunwrap, '': !chamado.wrapunwrap }"
+    >
+      <h2 class="header">{{ chamado.assunto }}</h2>
+      <p class="content">{{ chamado.descricao }}</p>
+      <p class="content">{{ chamado.usuario }}({{ chamado.departamento }})</p>
+>>>>>>> Stashed changes
       <div class="footer">
-      <p>Anydesk: {{chamado.numanydesk}}</p>
-      <p>Status: {{chamado.status}}</p>
+        <p>Anydesk: {{ chamado.numanydesk }}</p>
+        <p>Status: {{ chamado.status }}</p>
       </div>
-      
-     <v-icon id="wrap" name="ri-arrow-drop-down-fill" scale="2" @click="toggleWrap(chamado)" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap}"/>
+
+      <v-icon
+        id="wrap"
+        name="ri-arrow-drop-down-fill"
+        scale="2"
+        @click="toggleWrap(chamado)"
+        :class="{ wrap: chamado.wrapunwrap, '': !chamado.wrapunwrap }"
+      />
     </div>
   </main>
 </template>
 
 <style>
-
-
 body {
   width: 100%;
   height: 85vh;
@@ -61,8 +78,8 @@ body {
   padding-right: 1rem;
 }
 
-a{
-  cursor:pointer
+a {
+  cursor: pointer;
 }
 
 header.home {
@@ -87,73 +104,30 @@ header.home a:nth-child(2) {
   margin-right: 1rem;
 }
 
-@media(min-width: 601px){
+@media (min-width: 601px) {
   h2 {
-  font-size: 1.4rem;
-}
-main.home {
-  margin-top: 4rem;
-  margin-bottom: 1rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Define duas colunas com largura igual */
-  gap: 1rem;
-  width: 100%;
-
-}
-div.chamados {
-  border-radius: 0.5rem;
-  position:relative;
-  background-color: white;
-  border: 1px solid black;
-  overflow-y: hidden;
-  padding: 0.2rem 1rem;
-  transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
-  max-height: 100px; /* Defina max-height igual ao valor inicial de height */
-}
-
-div.chamados.wrap {
-  max-height: 1000px;
-  overflow-y: scroll;
-}
-
-div.chamados #wrap {
-  cursor:pointer;
-  position: absolute;
-  bottom: -4px;
-  right: 0;
-}
-
-div.chamados #wrap.wrap {
-  transform: rotate(180deg);
-}
-
-div.chamados .header {
-  padding: 0 0 0.2rem 0.25rem;
-  border-bottom: 1px solid gray;
-}
-
-div.chamados .content {
-  padding: 0 0.25rem;
-}
-
-div.chamados .footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.25rem;
-}
-}
-@media (min-width:0px) and (max-width: 600px){
-
+    font-size: 1.4rem;
+  }
   main.home {
-  margin-top: 4rem;
-  margin-bottom: 1rem;
-  gap: 1rem;
-  display:grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  overflow: hidden;
-}
+    margin-top: 4rem;
+    padding-bottom: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Define duas colunas com largura igual */
+    gap: 1rem;
+    width: 100%;
+  }
+  div.chamados {
+    border-radius: 0.5rem;
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    overflow-y: hidden;
+    padding: 0.2rem 1rem;
+    transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
+    max-height: 100px; /* Defina max-height igual ao valor inicial de height */
+  }
 
+<<<<<<< Updated upstream
 div.chamados {
   border-radius: 0.5rem;
   position:relative;
@@ -166,41 +140,97 @@ div.chamados {
   transition: max-height 0.3s ease-in-out; /* Adicione uma transição para max-height */
   max-height: 100px; /* Defina max-height igual ao valor inicial de height */
 }
+=======
+  div.chamados.wrap {
+    max-height: 1000px;
+    overflow-y: scroll;
+  }
+>>>>>>> Stashed changes
 
-div.chamados.wrap {
-  max-height: 500px;
-  overflow-y: visible;
-}
+  div.chamados #wrap {
+    cursor: pointer;
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+  }
 
-div.chamados #wrap{
-  position: absolute;
-  bottom: -4px;
-  right: 0px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in;
-}
+  div.chamados #wrap.wrap {
+    transform: rotate(180deg);
+  }
 
-div.chamados #wrap.wrap {
-  transform: rotate(180deg);
-}
+  div.chamados .header {
+    padding: 0 0 0.2rem 0.25rem;
+    border-bottom: 1px solid gray;
+  }
 
-div.chamados .header {
-  padding: 0 0 0.2rem 0.25rem;
-  border-bottom: 1px solid gray;
-}
+  div.chamados .content {
+    padding: 0 0.25rem;
+  }
 
-div.chamados .content {
-  padding: 0.5rem 0.25rem;
+  div.chamados .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+  }
 }
+@media (min-width: 0px) and (max-width: 600px) {
+  main.home {
+    margin-top: 4rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    overflow: hidden;
+  }
 
-div.chamados .footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.25rem;
-}
+  div.chamados {
+    border-radius: 0.5rem;
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    overflow-y: hidden;
+    padding: 0.5rem 1rem;
+    width: auto;
+    margin: 0;
+    transition: max-height 0.3s ease-in-out; /* Adicione uma transição para max-height */
+    max-height: 100px; /* Defina max-height igual ao valor inicial de height */
+  }
 
-h2 {
-  font-size: 1rem;
-}
+  div.chamados.wrap {
+    max-height: 500px;
+    overflow-y: visible;
+  }
+
+  div.chamados #wrap {
+    position: absolute;
+    bottom: -4px;
+    right: 0px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in;
+  }
+
+  div.chamados #wrap.wrap {
+    transform: rotate(180deg);
+  }
+
+  div.chamados .header {
+    padding: 0 0 0.2rem 0.25rem;
+    border-bottom: 1px solid gray;
+  }
+
+  div.chamados .content {
+    padding: 0.5rem 0.25rem;
+  }
+
+  div.chamados .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
 }
 </style>
