@@ -133,6 +133,11 @@ header.home a:nth-child(2) {
     max-height: 100px; /* Defina max-height igual ao valor inicial de height */
   }
 
+  div.chamados.wrap {
+    max-height: 1000px;
+    overflow-y: visible;
+  }
+
   div.chamados #wrap {
     cursor: pointer;
     position: absolute;
@@ -184,7 +189,7 @@ header.home a:nth-child(2) {
   }
 
   div.chamados.wrap {
-    max-height: 500px;
+    max-height: 1000px;
     overflow-y: visible;
   }
 
