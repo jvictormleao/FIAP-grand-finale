@@ -54,7 +54,7 @@ const deslogar = () => {
       <div class="form-content">
         <label for="descricao">Descrição: </label>
 <!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:799106906. -->
-        <textarea id="descricao" form="chamado" v-model="chamado.descricao"placeholder="Descrição">
+        <textarea id="descricao" form="chamado" v-model="chamado.descricao" placeholder="Descrição">
 </textarea>
       </div>
       <div class="form-content">
