@@ -7,18 +7,18 @@ const chamados = ref([])
 
 const route = useRoute()
 const router = useRouter()
-route.params.id
+route.params.name
 
 onMounted(() => {
-  Chamado.listar(route.params.id).then((res) => {
+  Chamado.listar().then((res) => {
     chamados.value = res.data
   }).catch((err) => {
     console.log(err)
   })
-})
+});
 
 const novochamado = () => {
-  router.push('/novochamado')
+  router.push({ name: 'novochamado', params:{ name: route.params.name }})
 }
 
 const deslogar = () => {
@@ -33,19 +33,20 @@ const toggleWrap = (chamado) => {
 
 <template>
   <header class="home">
-    <a @click="novochamado">Novo chamado</a>
-    <a @click="deslogar">Sair</a>
+    <a @click="novochamado"><v-icon name="bi-plus-square-fill" scale="1.3"/> NOVO CHAMADO </a>
+    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3"/> LOGOUT</a>
   </header>
   <main class="home">
     <div class="chamados" v-for="chamado of chamados" :key="chamado.id" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">
       <h2 class="header">{{chamado.assunto}}</h2>
       <p class="content">{{chamado.descricao}}</p>
+      <p class="content">{{chamado.usuario}}({{chamado.departamento}})</p>
       <div class="footer">
       <p>Anydesk: {{chamado.numanydesk}}</p>
       <p>Status: {{chamado.status}}</p>
       </div>
       
-      <span @click="toggleWrap(chamado)" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">V</span>
+     <v-icon id="wrap" name="ri-arrow-drop-down-fill" scale="2" @click="toggleWrap(chamado)" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap}"/>
     </div>
   </main>
 </template>
@@ -58,6 +59,10 @@ body {
   height: 85vh;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+a{
+  cursor:pointer
 }
 
 header.home {
@@ -83,42 +88,42 @@ header.home a:nth-child(2) {
 }
 
 @media(min-width: 601px){
+  h2 {
+  font-size: 1.4rem;
+}
 main.home {
   margin-top: 4rem;
-  display:flex;
-  width: 100%;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Define duas colunas com largura igual */
   gap: 1rem;
+  width: 100%;
+
 }
-
-
-
 div.chamados {
   border-radius: 0.5rem;
   position:relative;
   background-color: white;
   border: 1px solid black;
-  width: 50%;
   overflow-y: hidden;
-  padding: 0.5rem 1rem;
-  margin: 0;
+  padding: 0.2rem 1rem;
   transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
   max-height: 100px; /* Defina max-height igual ao valor inicial de height */
 }
 
 div.chamados.wrap {
-  max-height: 500px;
+  max-height: 1000px;
   overflow-y: scroll;
 }
 
-div.chamados span {
+div.chamados #wrap {
+  cursor:pointer;
   position: absolute;
-  bottom: 4px;
-  right: 4px;
-  cursor: pointer;
+  bottom: -4px;
+  right: 0;
 }
 
-div.chamados span.wrap {
-  
+div.chamados #wrap.wrap {
   transform: rotate(180deg);
 }
 
@@ -141,9 +146,10 @@ div.chamados .footer {
 
   main.home {
   margin-top: 4rem;
-  display:flex;
-  flex-direction: column;
+  margin-bottom: 1rem;
   gap: 1rem;
+  display:grid;
+  grid-template-columns: 1fr;
   width: 100%;
   overflow: hidden;
 }
@@ -157,24 +163,24 @@ div.chamados {
   padding: 0.5rem 1rem;
   width: auto;
   margin: 0;
-  transition: max-height 0.5s ease-in-out; /* Adicione uma transição para max-height */
+  transition: max-height 0.3s ease-in-out; /* Adicione uma transição para max-height */
   max-height: 100px; /* Defina max-height igual ao valor inicial de height */
 }
 
 div.chamados.wrap {
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
-div.chamados span {
+div.chamados #wrap{
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: -4px;
+  right: 0px;
   cursor: pointer;
+  transition: transform 0.2s ease-in;
 }
 
-div.chamados span.wrap {
-  
+div.chamados #wrap.wrap {
   transform: rotate(180deg);
 }
 

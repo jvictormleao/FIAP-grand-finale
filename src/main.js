@@ -1,11 +1,15 @@
-import './assets/main.css'
+import './assets/main.css';
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import {RiArrowDropDownFill, RiDoorOpenFill, IoArrowBack, BiPlusSquareFill} from "oh-vue-icons/icons";
 
-const app = createApp(App)
+addIcons(RiArrowDropDownFill, RiDoorOpenFill, IoArrowBack, BiPlusSquareFill);
+
+const app = createApp(App);
 
 app.use(router)
-
-app.mount('#app')
+   .component("v-icon", OhVueIcon)
+   .mount("#app");
