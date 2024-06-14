@@ -38,12 +38,6 @@ const toggleWrap = (chamado) => {
     <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3" /> LOGOUT</a>
   </header>
   <main class="home">
-<<<<<<< Updated upstream
-    <div class="chamados" v-for="chamado of chamados" :key="chamado.id" :class="{ 'wrap': chamado.wrapunwrap, '': !chamado.wrapunwrap }">
-      <h2 class="header">{{chamado.assunto}}</h2>
-      <p class="content">{{chamado.descricao}}</p>
-      <p class="user">{{chamado.usuario}}({{chamado.departamento}})</p>
-=======
     <div
       class="chamados"
       v-for="chamado of chamados"
@@ -52,8 +46,7 @@ const toggleWrap = (chamado) => {
     >
       <h2 class="header">{{ chamado.assunto }}</h2>
       <p class="content">{{ chamado.descricao }}</p>
-      <p class="content">{{ chamado.usuario }}({{ chamado.departamento }})</p>
->>>>>>> Stashed changes
+      <p class="user">{{ chamado.usuario }}({{ chamado.departamento }})</p>
       <div class="footer">
         <p>Anydesk: {{ chamado.numanydesk }}</p>
         <p>Status: {{ chamado.status }}</p>
@@ -127,25 +120,18 @@ header.home a:nth-child(2) {
     max-height: 100px; /* Defina max-height igual ao valor inicial de height */
   }
 
-<<<<<<< Updated upstream
-div.chamados {
-  border-radius: 0.5rem;
-  position:relative;
-  background-color: white;
-  border: 1px solid black;
-  overflow-y: hidden;
-  padding: 0.3rem 1rem;
-  width: auto;
-  margin: 0;
-  transition: max-height 0.3s ease-in-out; /* Adicione uma transição para max-height */
-  max-height: 100px; /* Defina max-height igual ao valor inicial de height */
-}
-=======
-  div.chamados.wrap {
-    max-height: 1000px;
-    overflow-y: scroll;
+  div.chamados {
+    border-radius: 0.5rem;
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    overflow-y: hidden;
+    padding: 0.3rem 1rem;
+    width: auto;
+    margin: 0;
+    transition: max-height 0.3s ease-in-out; /* Adicione uma transição para max-height */
+    max-height: 100px; /* Defina max-height igual ao valor inicial de height */
   }
->>>>>>> Stashed changes
 
   div.chamados #wrap {
     cursor: pointer;

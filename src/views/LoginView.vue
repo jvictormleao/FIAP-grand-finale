@@ -32,31 +32,31 @@ const verlogin = () => {
 
 <template>
   <main class="login">
-  <div class="login">
-    <header>
-      <h2>Login</h2>
-      <h2>EasyCall</h2>
-    </header>
+    <div class="login">
+      <header>
+        <h2>Login</h2>
+        <h2>EasyCall</h2>
+      </header>
 
-    <form class="form-login" @submit.prevent="verlogin">
-      <div class="form-content">
-        <label for="username">Username:</label>
-        <input type="text" v-model="user" />
-      </div>
-      <div class="form-content">
-        <label for="password">Password:</label>
-        <input type="password" v-model="pass" required />
-      </div>
-      <div class="form-content">
-        <button type="submit">Login</button>
-      </div>
-    </form>
-  </div>
-</main>
+      <form class="form-login" @submit.prevent="verlogin">
+        <div class="form-content">
+          <label for="username">Username:</label>
+          <input type="text" v-model="user" />
+        </div>
+        <div class="form-content">
+          <label for="password">Password:</label>
+          <input type="password" v-model="pass" required />
+        </div>
+        <div class="form-content">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </main>
 </template>
 
 <style scoped>
-main.login{
+main.login {
   display: flex;
   justify-content: center;
   align-items: center;

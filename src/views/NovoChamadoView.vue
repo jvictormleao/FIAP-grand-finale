@@ -1,40 +1,36 @@
 <script setup>
-import { ref} from 'vue'
+import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Chamado from '../services/chamado'
-
-
 
 const route = useRoute()
 const router = useRouter()
 route.params.name
 
-
-
-
-const chamado = ref(
-    {
-        assunto: '',
-        descricao: '',
-        usuario: route.params.name,
-        departamento: '',
-        numanydesk: '',
-        status: 'em aberto'
-    })
+const chamado = ref({
+  assunto: '',
+  descricao: '',
+  usuario: route.params.name,
+  departamento: '',
+  numanydesk: '',
+  status: 'em aberto'
+})
 
 const abrirChamado = () => {
-    alert(chamado)
-Chamado.salvar(chamado.value).then((res) => {
-console.log(res)
-alert("Chamado aberto com sucesso")
-router.back();
-}).catch((err) => {
-console.log(err)
-})
+  alert(chamado)
+  Chamado.salvar(chamado.value)
+    .then((res) => {
+      console.log(res)
+      alert('Chamado aberto com sucesso')
+      router.back()
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const voltar = () => {
-  router.back();
+  router.back()
 }
 
 const deslogar = () => {
@@ -43,23 +39,23 @@ const deslogar = () => {
 </script>
 
 <template>
-<header class="novochamado">
-    <a @click="voltar"><v-icon name="io-arrow-back" scale="1.3"/> </a>
-    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3"/></a>
+  <header class="novochamado">
+    <a @click="voltar"><v-icon name="io-arrow-back" scale="1.3" /> </a>
+    <a @click="deslogar"><v-icon name="ri-door-open-fill" scale="1.3" /></a>
   </header>
-  
+
   <main class="chamado">
     <form @submit.prevent="abrirChamado">
-    <label for="">Assunto: </label>
-    <input type="text" v-model='chamado.assunto' placeholder="Assunto" required>
-    <label for="">Descrição: </label>
-    <input type="text" v-model='chamado.descricao' placeholder="Descrição" required>
-    <label for="">Departamento: </label>
-    <input type="text" v-model='chamado.departamento' placeholder="Departamento" required>
-    <label for="">Número Anydesk: </label>
-    <input type="text" v-model='chamado.numanydesk' placeholder="Número do Anydesk" required>
-    <button type="submit">Abrir chamado</button>
-  </form>
+      <label for="">Assunto: </label>
+      <input type="text" v-model="chamado.assunto" placeholder="Assunto" required />
+      <label for="">Descrição: </label>
+      <input type="text" v-model="chamado.descricao" placeholder="Descrição" required />
+      <label for="">Departamento: </label>
+      <input type="text" v-model="chamado.departamento" placeholder="Departamento" required />
+      <label for="">Número Anydesk: </label>
+      <input type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
+      <button type="submit">Abrir chamado</button>
+    </form>
   </main>
 </template>
 
@@ -87,8 +83,8 @@ header.novochamado a:nth-child(2) {
 }
 
 main.chamado {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
 }
-  </style>
+</style>
