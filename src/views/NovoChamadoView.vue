@@ -17,7 +17,6 @@ const chamado = ref({
 })
 
 const abrirChamado = () => {
-  alert(chamado)
   Chamado.salvar(chamado.value)
     .then((res) => {
       console.log(res)
