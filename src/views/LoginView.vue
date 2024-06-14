@@ -65,7 +65,7 @@ main.login {
   align-items: center;
   margin: 0;
   padding: 0;
-  height: calc(100vh - 5rem);
+  height: 100vh;
   width: 100%;
 }
 div.login {
