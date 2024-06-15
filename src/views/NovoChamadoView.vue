@@ -53,13 +53,23 @@ const deslogar = () => {
       </div>
       <div class="form-content">
         <label for="descricao">Descrição: </label>
-<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:799106906. -->
-        <textarea id="descricao" form="chamado" v-model="chamado.descricao" placeholder="Descrição">
-</textarea>
+        <!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:799106906. -->
+        <textarea
+          id="descricao"
+          form="chamado"
+          v-model="chamado.descricao"
+          placeholder="Descrição"
+        ></textarea>
       </div>
       <div class="form-content">
         <label for="numanydesk">Número Anydesk: </label>
-        <input id="numanydesk" type="text" v-model="chamado.numanydesk" placeholder="Número do Anydesk" required />
+        <input
+          id="numanydesk"
+          type="text"
+          v-model="chamado.numanydesk"
+          placeholder="Número do Anydesk"
+          required
+        />
       </div>
       <button type="submit">Abrir chamado</button>
     </form>
@@ -80,8 +90,8 @@ div.form-content input {
   font-size: 1rem;
 }
 
-#descricao{
-  width: 18.75rem;
+#descricao {
+  width: 15rem;
   height: 5rem;
   resize: none;
   padding: 0.1rem;
@@ -100,7 +110,7 @@ header.novochamado {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 header.novochamado a:nth-child(1) {
@@ -115,16 +125,15 @@ main.chamado {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 5rem);
+  height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 form#chamado {
-  display:grid;
+  display: grid;
   gap: 0.5rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 form#chamado header {
@@ -147,5 +156,11 @@ form#chamado button {
 }
 form#chamado button:hover {
   background-color: darkgreen;
+}
+
+@media (min-width: 0) and (max-width: 600px) {
+  main.chamado {
+    height: calc(100vh - 5rem);
+  }
 }
 </style>

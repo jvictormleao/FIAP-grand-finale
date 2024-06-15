@@ -74,7 +74,7 @@ div.login {
   width: 16.25rem; /* ou a largura que desejar */
   padding: 1.25rem;
   border-radius: 10px;
-  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
 .login header {

@@ -1,35 +1,19 @@
-# grandfinale
+# GRANDFINALE
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Execute o comando abaixo para configuração de todas as dependencias do repositório.
 
 ```sh
-npm install
+npm setup-project
 ```
 
-### Compile and Hot-Reload for Development
+## GRUPO
 
-```sh
-npm run dev
-```
+### Arthur Dos Santos Bittencourt – RM96430
 
-### Compile and Minify for Production
+### Eduardo Ferracini Junior – RM96532
 
-```sh
-npm run build
-```
+### Bruno Paixa de Araújo – RM96557
 
-### Lint with [ESLint](https://eslint.org/)
+### Brian Stuart de Oliveira Beck – RM96372
 
-```sh
-npm run lint
-```
+### João Victor Mariano Leão – RM97150

@@ -32,19 +32,18 @@ const deslogar = () => {
 }
 
 const deletar = (id) => {
-  if (confirm("Deseja mesmo excluir do chamado?") == true) {
+  if (confirm('Deseja mesmo excluir do chamado?') == true) {
     Chamado.deletar(id)
-    .then((res) => {
-      console.log('Chamado excluido com sucesso:', res)
-      listar()
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-} else {
-  listar()
-}
-  
+      .then((res) => {
+        console.log('Chamado excluido com sucesso:', res)
+        listar()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  } else {
+    listar()
+  }
 }
 
 const toggleWrap = (chamado) => {
@@ -126,7 +125,7 @@ header.home {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 header.home a:nth-child(1) {
@@ -148,13 +147,12 @@ header.home a:nth-child(2) {
     gap: 1rem;
     width: 100%;
   }
-  
 
   div.chamados {
     border-radius: 0.5rem;
     position: relative;
     background-color: white;
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
     overflow-y: hidden;
     padding: 0.3rem 1rem;
     width: auto;
@@ -194,15 +192,13 @@ header.home a:nth-child(2) {
     gap: 1rem;
     display: grid;
     grid-template-columns: 1fr;
-    width: 100%;
-    overflow: hidden;
   }
 
   div.chamados {
     border-radius: 0.5rem;
     position: relative;
     background-color: white;
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
     overflow-y: hidden;
     padding: 0.5rem 1rem;
     width: auto;
