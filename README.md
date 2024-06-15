@@ -1,7 +1,7 @@
 # GRANDFINALE
 
 ## Execute o comando abaixo para configuração de todas as dependencias do repositório.
-## Todos os arquivos necessários para avaliação do projeto estarão presentes após a execução do comando de configuração abaixo.
+# Todos os arquivos necessários para avaliação do projeto estarão presentes após a execução do comando de configuração abaixo.
 
 ```sh
 npm setup-project
