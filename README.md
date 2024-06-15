@@ -6,6 +6,20 @@
 npm setup-project
 ```
 
+## Para logar no projeto use o usuário e senha fornecido abaixo
+
+## Usuário
+
+```sh
+joaoleao
+```
+
+## Senha
+
+```sh
+150599
+```
+
 ## GRUPO
 
 ### Arthur Dos Santos Bittencourt – RM96430
