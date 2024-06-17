@@ -4,7 +4,7 @@
 ### Todos os arquivos necessários para avaliação do projeto estarão presentes após a execução do comando de configuração abaixo.
 
 ```sh
-npm setup-project
+npm run "setup-project"
 ```
 
 ## Para logar no projeto use o usuário e senha fornecido abaixo
