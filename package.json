@@ -9,7 +9,7 @@
     "preview": "vite preview --host",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "setup-project": "npm install && npx cap add android && vite build && cap copy && cap open android"
+    "setup-project": "npm install && npm run build && cap copy && cap open android"
   },
   "dependencies": {
     "@capacitor/android": "^6.0.0",
